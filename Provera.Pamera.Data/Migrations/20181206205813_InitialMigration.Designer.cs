@@ -10,7 +10,7 @@ using Provera.Pamera.Data.Concrete;
 namespace Provera.Pamera.Data.Migrations
 {
     [DbContext(typeof(PameraContext))]
-    [Migration("20181206102519_InitialMigration")]
+    [Migration("20181206205813_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace Provera.Pamera.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Provera.Pamera.Model.Concrete.Product", b =>
@@ -45,6 +45,26 @@ namespace Provera.Pamera.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Provera.Pamera.Model.Helpers.Audit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateTime");
+
+                    b.Property<string>("KeyValues");
+
+                    b.Property<string>("NewValues");
+
+                    b.Property<string>("OldValues");
+
+                    b.Property<string>("TableName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Audits");
                 });
 #pragma warning restore 612, 618
         }

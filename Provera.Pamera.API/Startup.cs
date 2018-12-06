@@ -32,10 +32,13 @@ namespace Provera.Pamera.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            PameraContext.ConnectionString = Configuration.GetConnectionString("DefaultConnection").ToString();
-           // services.AddDbContext<PameraContext>(
-            //options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), 
-            //                                    b => b.MigrationsAssembly("Provera.Pamera.API")));
+            PameraContext.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<PameraContext>
+            (
+            options =>
+                options.UseNpgsql(
+            Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductRepository, ProductRepository>();

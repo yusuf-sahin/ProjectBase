@@ -16,6 +16,6 @@ namespace Provera.Pamera.Model.Concrete
         public string Name { get; set; }
         public string Description { get; set; }
         public string Memo { get; set; }
- 
+
     }
 }

@@ -19,8 +19,14 @@ namespace Provera.Pamera.Data.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseNpgsql(@"Server=localhost;Database=Pamera_DB;Username=provera;Password=Provera@2016");
-            optionsBuilder.UseNpgsql(ConnectionString);
+            if (string.IsNullOrWhiteSpace(ConnectionString))
+            {
+                ConnectionString = @"Server=localhost;Database=Pamera_DB;Username=postgres;Password=Provera@2016";
+            }
+           
+                optionsBuilder.UseNpgsql(ConnectionString);
+          
+
         }
 
 
