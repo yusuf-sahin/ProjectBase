@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Provera.Pamera.Model\Provera.Pamera.Model.csproj" />
+    <ProjectReference Include="..\Provera.Pamera.Data\Provera.Pamera.Data.csproj" />
+  </ItemGroup>
 </Project>

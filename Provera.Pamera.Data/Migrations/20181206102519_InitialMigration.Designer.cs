@@ -10,7 +10,7 @@ using Provera.Pamera.Data.Concrete;
 namespace Provera.Pamera.Data.Migrations
 {
     [DbContext(typeof(PameraContext))]
-    [Migration("20181206013024_InitialMigration")]
+    [Migration("20181206102519_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Provera.Pamera.Data.DataAccess.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
-        where TEntity : class, IEntity, new()
+        where TEntity : class, IEntity,ITrackable,new()
         where TContext : DbContext, new()
 
     {
@@ -42,9 +42,13 @@ namespace Provera.Pamera.Data.DataAccess.EntityFramework
 
         public virtual async Task UpdateAsync(TEntity entity)
         {
+
             using (var context = new TContext())
             {
+                context.Entry(entity).Property(p => p.CreatedAt).IsModified = false;
+                context.Entry(entity).Property(p => p.CreatedBy).IsModified = false;
                 var updatedEntity = context.Entry(entity);
+
                 updatedEntity.State = EntityState.Modified;
                 await context.SaveChangesAsync();
             }

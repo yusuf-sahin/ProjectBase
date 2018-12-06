@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Provera.Pamera.Data.Concrete;
@@ -9,9 +10,10 @@ using Provera.Pamera.Data.Concrete;
 namespace Provera.Pamera.Data.Migrations
 {
     [DbContext(typeof(PameraContext))]
-    partial class PameraContextModelSnapshot : ModelSnapshot
+    [Migration("20181206123922_MigrationForAudits")]
+    partial class MigrationForAudits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
