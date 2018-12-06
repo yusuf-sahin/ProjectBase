@@ -6,5 +6,6 @@ namespace Provera.Pamera.Data.Concrete
 {
     public class ProductRepository : EfEntityRepositoryBase<Product, PameraContext>,IProductRepository
     {
+       
     }
 }

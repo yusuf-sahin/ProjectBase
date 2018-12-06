@@ -15,14 +15,19 @@ namespace Provera.Pamera.Data.Concrete
 {
     public class PameraContext:DbContext
     {
+        public static string ConnectionString { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseNpgsql(@"Server=localhost;Database=Pamera_DB;Username=provera;Password=Provera@2016");
-            optionsBuilder.UseNpgsql(@"Server=localhost;Database=Pamera_DB;Username=postgres;Password=Provera@2016");
+            optionsBuilder.UseNpgsql(ConnectionString);
         }
+
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Audit> Audits { get; set; }
 
+       // public PameraContext(DbContextOptions options) : base(options) { }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {

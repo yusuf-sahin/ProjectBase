@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Provera.Pamera.Data.Concrete;
 using Provera.Pamera.Model.Abstract;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Provera.Pamera.Data.DataAccess.EntityFramework
         where TContext : DbContext, new()
 
     {
+
         public virtual async Task AddAsync(TEntity entity)
         {
             var context = new TContext();
